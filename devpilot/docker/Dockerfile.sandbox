@@ -1,0 +1,17 @@
+FROM python:3.11-slim
+
+RUN groupadd -g 1000 sandboxgroup && \
+    useradd -u 1000 -g sandboxgroup -m -s /bin/bash sandboxuser
+
+RUN pip install --no-cache-dir pytest
+
+WORKDIR /workspace
+RUN chown -R sandboxuser:sandboxgroup /workspace
+
+USER sandboxuser
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PATH="/home/sandboxuser/.local/bin:${PATH}"
+
+CMD ["python3"]

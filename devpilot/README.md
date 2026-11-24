@@ -1,0 +1,3 @@
+# DevPilot: Autonomous AI Coding Agent
+
+DevPilot is an autonomous, full-stack software development agent that converts natural language requirements into verified, production-grade source code. The agent analyzes requirements, generates structured implementation plans, requests human approval before file operations, writes code, executes automated test suites inside resource-constrained Docker sandboxes, analyzes execution failures, and autonomously performs self-repair cycles.
